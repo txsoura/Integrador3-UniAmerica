@@ -1,4 +1,6 @@
-# Integrador3-UniAmerica
+<h1 align="center">
+# Integrador project 3 UniAmérica  
+</h1>
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/txsoura/Integrador3-UniAmerica?style=for-the-badge&logo=appveyor">
 
