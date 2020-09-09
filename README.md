@@ -29,6 +29,10 @@
 ## 🚀 Technologys
 
 ### Java
+Programming language and computing platform first released by Sun Microsystems in 1995. [More info](https://java.com)
+
+### Mysql
+Ppen-source relational database management system (RDBMS). [More info](https://mysql.com)
 
 ## 💻 Project
 
