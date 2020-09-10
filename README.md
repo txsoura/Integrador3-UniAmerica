@@ -6,14 +6,9 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/txsoura/Integrador3-UniAmerica?style=for-the-badge&logo=appveyor">
 
-  <a href="https://github.com/txsoura/Integrador3-UniAmerica/commits/develop">
+  <a href="https://github.com/txsoura/Integrador3-UniAmerica/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/txsoura/Integrador3-UniAmerica?style=for-the-badge&logo=appveyor">
   </a>
-
-  <a href="https://github.com/txsoura/Integrador3-UniAmerica/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/txsoura/Integrador3-UniAmerica?style=for-the-badge&logo=appveyor">
-  </a>
-
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge&logo=appveyor">
 </p>
 
