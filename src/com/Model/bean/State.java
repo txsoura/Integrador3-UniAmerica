@@ -7,8 +7,8 @@ public class State extends Country {
 	public State() {
 	}
 
-	public State(int CountryId, String CountryName, String CountryCode, int id, String name, String code) {
-		super(CountryId,CountryName,CountryCode);
+	public State(int countryId, String countryName, String countryCode, int id, String name, String code) {
+		super(countryId,countryName,countryCode);
 		this.id = id;
 		this.name = name;
 		this.code = code;

@@ -7,8 +7,8 @@ private String street,district,complement;
 public Address() {
 }
 
-public Address(int CountryId, String CountryName, String CountryCode, int StateId, String StateName, String StateCode,int CityId, String CityName, String CityCode,int id, int number, int postcode, String street, String district, String complement) {
-	super(CountryId,CountryName,CountryCode,StateId,StateName,StateCode,CityId,CityName,CityCode);
+public Address(int countryId, String countryName, String countryCode, int stateId, String stateName, String stateCode,int cityId, String cityName, String cityCode,int id, int number, int postcode, String street, String district, String complement) {
+	super(countryId,countryName,countryCode,stateId,stateName,stateCode,cityId,cityName,cityCode);
 	this.id = id;
 	this.number = number;
 	this.postcode = postcode;
