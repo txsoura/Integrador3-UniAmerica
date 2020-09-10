@@ -12,7 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.Connection.ConnectionFactory;
-import com.Enum.EventType;
 import com.Model.bean.Event;
 
 public class EventDao{
