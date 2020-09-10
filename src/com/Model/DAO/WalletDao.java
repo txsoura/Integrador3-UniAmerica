@@ -58,21 +58,19 @@ public class WalletDao{
 
 	    }
 
-	    public List<Wallet> show(int id) {
+	    public Wallet show(int id) {
 	        Connection con = ConnectionFactory.getConnection();
 	        PreparedStatement stmt = null;
 	        ResultSet rs = null;
-	        List<Wallet> wallets = new ArrayList<>();
+	        Wallet wallet = new Wallet();
 	        try {
 	            stmt = con.prepareStatement("SELECT * FROM wallets WHERE id LIKE ?");
 	            stmt.setInt(1, id);
 	            rs = stmt.executeQuery();
 
 	            while (rs.next()) {
-	            	Wallet wallet = new Wallet();
 	            	 wallet.setId(rs.getInt("id"));
 		                wallet.setBalance(rs.getDouble("balance"));
-	                wallets.add(wallet);
 	            }
 
 	        } catch (SQLException ex) {
@@ -80,7 +78,7 @@ public class WalletDao{
 	        } finally {
 	            ConnectionFactory.closeconnection(con, stmt, rs);
 	        }
-	        return wallets;
+	        return wallet;
 	    }
 
 	    public boolean update(Wallet wallet) {

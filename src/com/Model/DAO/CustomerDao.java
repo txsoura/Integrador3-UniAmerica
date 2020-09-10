@@ -66,24 +66,22 @@ public class CustomerDao{
 
     }
 
-    public List<Customer> show(int id) {
+    public Customer show(int id) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<Customer> customers = new ArrayList<>();
+        Customer customer = new Customer();
         try {
             stmt = con.prepareStatement("SELECT * FROM customers WHERE id LIKE ?");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-            	Customer customer = new Customer();
             	customer.setId(rs.getInt("id"));
                 customer.setName(rs.getString("name"));
                 customer.setCellphone(rs.getInt("cellphone"));
                 customer.setBirthdate(rs.getDate("birthdate"));
 //                customer.setSex((UserSex)Enum.Parse(typeof(UserSex),rs.getString("sex")));
-                customers.add(customer);
             }
 
         } catch (SQLException ex) {
@@ -91,7 +89,7 @@ public class CustomerDao{
         } finally {
             ConnectionFactory.closeconnection(con, stmt, rs);
         }
-        return customers;
+        return customer;
     }
 
     public boolean update(Customer customer) {

@@ -61,22 +61,20 @@ public class MerchantDao {
 
 	    }
 
-	    public List<Merchant> show(int id) {
+	    public Merchant show(int id) {
 	        Connection con = ConnectionFactory.getConnection();
 	        PreparedStatement stmt = null;
 	        ResultSet rs = null;
-	        List<Merchant> merchants = new ArrayList<>();
+	        Merchant merchant = new Merchant();
 	        try {
 	            stmt = con.prepareStatement("SELECT * FROM merchants WHERE id LIKE ?");
 	            stmt.setInt(1, id);
 	            rs = stmt.executeQuery();
 
 	            while (rs.next()) {
-	            	Merchant merchant = new Merchant();
 	                merchant.setName(rs.getString("name"));
 	                merchant.setCellphone(rs.getInt("cellphone"));
 	                merchant.setCpf_cnpj(rs.getInt("cpf_cnpj"));
-	                merchants.add(merchant);
 	            }
 
 	        } catch (SQLException ex) {
@@ -84,7 +82,7 @@ public class MerchantDao {
 	        } finally {
 	            ConnectionFactory.closeconnection(con, stmt, rs);
 	        }
-	        return merchants;
+	        return merchant;
 	    }
 
 	    public boolean update(Merchant merchant) {

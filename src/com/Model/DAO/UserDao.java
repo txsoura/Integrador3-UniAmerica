@@ -64,24 +64,22 @@ public class UserDao {
 
 	    }
 
-	    public List<User> show(int id) {
+	    public User show(int id) {
 	        Connection con = ConnectionFactory.getConnection();
 	        PreparedStatement stmt = null;
 	        ResultSet rs = null;
-	        List<User> users = new ArrayList<>();
+	        User user = new User();
 	        try {
 	            stmt = con.prepareStatement("SELECT * FROM users WHERE id LIKE ?");
 	            stmt.setInt(1, id);
 	            rs = stmt.executeQuery();
 
 	            while (rs.next()) {
-	            	User user = new User();
 	            	user.setId(rs.getInt("id"));
 	            	 user.setEmail(rs.getString("email"));
 		                user.setPassword(rs.getString("password"));
 //	                user.setRole((UserRole)Enum.Parse(typeof(UserRole),rs.getString("role")));
 //	                user.setStatus((UserStatus)Enum.Parse(typeof(UserStatus),rs.getString("status")));
-	                users.add(user);
 	            }
 
 	        } catch (SQLException ex) {
@@ -89,7 +87,7 @@ public class UserDao {
 	        } finally {
 	            ConnectionFactory.closeconnection(con, stmt, rs);
 	        }
-	        return users;
+	        return user;
 	    }
 
 	    public boolean update(User user) {
