@@ -35,7 +35,7 @@ public class TicketDao{
 	                ticket = new Ticket();
 	                ticket.setId(rs.getInt("id"));
 	                ticket.setPrice(rs.getDouble("price"));
-//	                ticket.setStatus((TicketStatus)Enum.Parse(typeof(TicketStatus)rs.getString("type"))));
+//	                ticket.setStatus((TicketStatus)Enum.Parse(typeof(TicketStatus)rs.getString("status"))));
 
 	                tickets.add(ticket);
 	            }
@@ -49,7 +49,7 @@ public class TicketDao{
 	    }
 
 	    public void store(Ticket ticket) throws UnsupportedEncodingException {
-	        String sql = "INSERT INTO tickets (street,number,postcode,complement,district) VALUES (?,?,?,?,?)";
+	        String sql = "INSERT INTO tickets (price,status) VALUES (?,?)";
 	        PreparedStatement stmt = null;
 	        try {
 	            stmt = con.prepareStatement(sql);
@@ -87,7 +87,7 @@ public class TicketDao{
 	    }
 
 	    public boolean update(Ticket ticket) {
-	        String sql = "UPDATE tickets SET street=?,number=? ,postcode=? ,complement=? ,district=?  WHERE id=?";
+	        String sql = "UPDATE tickets SET price=? ,status=?  WHERE id=?";
 	        PreparedStatement stmt = null;
 
 	        try {

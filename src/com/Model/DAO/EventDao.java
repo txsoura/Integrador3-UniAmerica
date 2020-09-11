@@ -54,7 +54,7 @@ public class EventDao{
 	    }
 
 	    public void store(Event event) throws UnsupportedEncodingException {
-	        String sql = "INSERT INTO events (street,number,postcode,complement,district) VALUES (?,?,?,?,?)";
+	        String sql = "INSERT INTO events (name,description,start,end,price,promo_price,type) VALUES (?,?,?,?,?,?,?)";
 	        PreparedStatement stmt = null;
 	        try {
 	            stmt = con.prepareStatement(sql);
@@ -102,7 +102,7 @@ public class EventDao{
 	    }
 
 	    public boolean update(Event event) {
-	        String sql = "UPDATE events SET street=?,number=? ,postcode=? ,complement=? ,district=?  WHERE id=?";
+	        String sql = "UPDATE events SET name=?,description=? ,start=? ,end=? ,price=?,promo_price=?,type=?  WHERE id=?";
 	        PreparedStatement stmt = null;
 
 	        try {
