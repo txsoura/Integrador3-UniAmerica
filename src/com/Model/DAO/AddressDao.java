@@ -73,7 +73,7 @@ public class AddressDao{
 	        ResultSet rs = null;
 	        Address address = new Address();
 	        try {
-	            stmt = con.prepareStatement("SELECT * FROM addresses WHERE id LIKE ?");
+	            stmt = con.prepareStatement("SELECT * FROM addresses WHERE id= ?");
 	            stmt.setInt(1, id);
 	            rs = stmt.executeQuery();
 
@@ -94,7 +94,7 @@ public class AddressDao{
 	        return address;
 	    }
 
-	    public boolean update(Address address) {
+	    public void update(Address address) {
 	        String sql = "UPDATE addresses SET street=?,number=? ,postcode=? ,complement=? ,district=?  WHERE id=?";
 	        PreparedStatement stmt = null;
 
@@ -107,27 +107,25 @@ public class AddressDao{
 	            stmt.setString(5, address.getDistrict());
 	            stmt.setInt(6, address.getId());
 	            stmt.executeUpdate();
-	            return true;
+	            
 	        } catch (SQLException ex) {
-	            System.err.println("Erro" + ex);
-	            return false;
+	        	Logger.getLogger(AddressDao.class.getName()).log(Level.SEVERE, null, ex);
 	        } finally {
 	            ConnectionFactory.closeconnection(con, stmt);
 	        }
 	    }
 
-	    public boolean delete(Address address) {
+	    public void delete(int id) {
 	        String sql = "DELETE FROM addresses WHERE id=?";
 	        PreparedStatement stmt = null;
 
 	        try {
 	            stmt = con.prepareStatement(sql);
-	            stmt.setInt(1, address.getId());
+	            stmt.setInt(1, id);
 	            stmt.executeUpdate();
-	            return true;
+	            
 	        } catch (SQLException ex) {
-	            System.err.println("Erro" + ex);
-	            return false;
+	        	Logger.getLogger(AddressDao.class.getName()).log(Level.SEVERE, null, ex);
 	        } finally {
 	            ConnectionFactory.closeconnection(con, stmt);
 	        }
